@@ -1,0 +1,205 @@
+/* =========================
+   HEADER & NAVBAR
+========================= */
+header {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.594),
+    rgba(0, 0, 0, 0.594),
+    transparent
+  );
+}
+
+.logo {
+  background-color: white;
+  border-radius: 50px;
+  filter: contrast(3) brightness(0.9);
+}
+
+.opciones a {
+  border: 1px solid rgba(255, 255, 255, 0.195);
+  padding: 4px 10px;
+  border-radius: 50px;
+  transition: border 0.2s ease-in-out;
+}
+
+.opciones a:hover {
+  border: 1px solid rgba(255, 255, 255, 0.473);
+}
+
+/* =========================
+   BACKGROUND & OVERLAY
+========================= */
+.fondo-principal {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+/* === OVERLAY === */
+.overlay,
+.overlay-img {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.818);
+  z-index: 5;
+}
+
+.overlay-img {
+  z-index: 0;
+}
+
+
+/* =========================
+   TEXTO ESTUDIANTES
+========================= */
+.texto-estudiantes {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+/* =========================
+   LISTA DE ESTUDIANTES
+========================= */
+.lista-estudiantes {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+/* Cada tarjeta */
+.lista-estudiantes li {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.288);
+  border-radius: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.lista-estudiantes li:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: scale(1.02);
+}
+
+/* Contenedor de imagen + texto en fila */
+.li-estudiantes {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Imagen circular */
+.li-estudiantes img.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+/* Texto al lado derecho */
+.li-estudiantes .info {
+  flex: 1;
+  text-align: left;
+}
+
+.li-estudiantes .info h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+}
+
+.li-estudiantes .info p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+}
+
+/* =========================
+   LISTA DE ESTUDIANTES
+========================= */
+.lista-estudiantes {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 30px;
+  padding-bottom: 20px; /* un poco de respiro */
+}
+
+/* Cada tarjeta */
+.lista-estudiantes li {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.288);
+  border-radius: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.lista-estudiantes li:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: scale(1.02);
+}
+
+/* =========================
+   AJUSTE FINAL PARA EL ESPACIO
+========================= */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.bg-gray-900 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* pega todo arriba */
+}
+
+.fondo-principal {
+  flex: 1; /* ocupa todo el espacio */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra sin dejar vacío abajo */
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Tablets y móviles */
+@media (max-width: 720px) {
+  .lista-estudiantes {
+    width: 95%;
+  }
+
+  .li-estudiantes {
+    flex-direction: row; /* se mantiene imagen izquierda - texto derecha */
+    align-items: flex-start;
+  }
+
+  .li-estudiantes img.avatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .li-estudiantes .info h3 {
+    font-size: 1.1rem;
+  }
+
+  .li-estudiantes .info p {
+    font-size: 0.85rem;
+  }
+}

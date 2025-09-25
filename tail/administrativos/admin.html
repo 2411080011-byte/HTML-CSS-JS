@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudiantes</title>
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <div class="bg-gray-900 py-24 sm:py-32">
+    <div class="overlay"></div>
+
+    <!-- HEADER -->
+    <header class="absolute inset-x-0 top-0 z-50">
+      <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+        <div class="flex lg:flex-1">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img src="../imagenes/OIP-removebg-preview.png" alt="" class="h-10 w-auto logo" />
+          </a>
+        </div>
+        <div class="flex lg:hidden">
+          <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200">
+            <span class="sr-only">Open main menu</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+              <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12 opciones">
+          <a href="../tail/tail.html" class="text-sm/6 font-semibold text-white">Inicio</a>
+          <a href="../docentes/docentes.html" class="text-sm/6 font-semibold text-white">Docentes</a>
+          <a href="../estudiantes/estudiantes.html" class="text-sm/6 font-semibold text-white">Estudiantes</a>
+          <a href="../administrativos/admin.html" class="text-sm/6 font-semibold text-white">Administrativos</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <img class="overlay-img" src="https://mentor.pe/wp-content/uploads/2023/11/frontis-UNDC-1536x806.jpg" alt="">
+
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:px-10 fondo-principal">
+      <div class="texto-estudiantes">
+        <h2 class="text-3xl font-semibold tracking-tight text-pretty text-white sm:text-4xl">Administrativos</h2>
+        <p class="mt-6 text-lg/8 text-gray-400">
+          La Facultad de Ingeniería de Sistemas de la Universidad Nacional de Cañete brinda a sus estudiantes una gran variedad de docentes altamente capacitados en las diferentes áreas de las ciencias y la computación.
+        </p>
+      </div>
+
+      <ul role="list" class="lista-estudiantes">
+        <li>
+          <div class="li-estudiantes">
+            <img src="../imagenes/img1.jpg" alt="" class="avatar" />
+            <div class="info">
+              <h3>Jesús</h3>
+              <p class="cargo">Ingeniero de Sistemas</p>
+              <p class="desc">Especialista en la gestión, diseño y optimización de sistemas integrales.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="li-estudiantes">
+            <img src="../imagenes/img2.jpg" alt="" class="avatar" />
+            <div class="info">
+              <h3>Miguel</h3>
+              <p class="cargo">Matemático y físico</p>
+              <p class="desc">Especialista en la enseñanza y aplicación de principios matemáticos y científicos.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="li-estudiantes">
+            <img src="../imagenes/img7.jpg" alt="" class="avatar" />
+            <div class="info">
+              <h3>Arotinco</h3>
+              <p class="cargo">Designer</p>
+              <p class="desc">Profesional especializado en la creación de soluciones visuales y estéticas.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="li-estudiantes">
+            <img src="../imagenes/img6.jpg" alt="" class="avatar" />
+            <div class="info">
+              <h3>Chumpitaz</h3>
+              <p class="cargo">Front-end Developer</p>
+              <p class="desc">Especialista en el diseño y desarrollo de interfaces web personalizadas para el usuario.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

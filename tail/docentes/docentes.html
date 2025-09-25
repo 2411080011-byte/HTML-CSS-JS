@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="tail.css">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docentes</title>
+  <link rel="stylesheet" href="docentes.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
-<div class="bg-gray-800">
-  <div class="overlay"></div>
+<body class="relative bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- Imagen de fondo y overlay -->
+  <div class="absolute inset-0 -z-10">
+    <img class="overlay-img" src="https://mentor.pe/wp-content/uploads/2023/11/frontis-UNDC-1536x806.jpg" alt="Fondo">
+    <div class="overlay"></div>
+  </div>
+
+  <!-- HEADER -->
   <header class="absolute inset-x-0 top-0 z-50">
     <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
       <div class="flex lg:flex-1">
@@ -29,11 +33,10 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12 opciones">
-        <a href="tail.html" class="text-sm/6 font-semibold text-white">Inicio</a>
-        <a href="../docentes/docentes.html" class="text-sm/6 font-semibold text-white">Docentes</a>
+        <a href="../tail/tail.html" class="text-sm/6 font-semibold text-white">Inicio</a>
+        <a href="docentes.html" class="text-sm/6 font-semibold text-white">Docentes</a>
         <a href="../estudiantes/estudiantes.html" class="text-sm/6 font-semibold text-white">Estudiantes</a>
         <a href="../administrativos/admin.html" class="text-sm/6 font-semibold text-white">Administrativos</a>
-        <a href="../js.js/js.html" class="text-sm/6 font-semibold text-white">JS</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
@@ -74,24 +77,47 @@
     </el-dialog>
   </header>
 
-  <img class="overlay-img" src="https://mentor.pe/wp-content/uploads/2023/11/frontis-UNDC-1536x806.jpg" alt="">
-  <div class="relative isolate px-6 pt-14 lg:px-8 fondo-principal">
-    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-      <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-        <div class="relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
-          Facultad de Ingeniería de Sistemas <a href="#" class="font-semibold text-indigo-400"><span aria-hidden="true" class="absolute inset-0"></span>Leer más<span aria-hidden="true">&rarr;</span></a>
-        </div>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-1 pt-32 pb-16 px-6 lg:px-16">
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-7xl mx-auto min-h-screen">
+      
+      <!-- Texto -->
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:col-span-1 self-start docente-contenedor">
+        <h2 class="text-3xl font-bold mb-4">Docentes</h2>
+        <p class="text-gray-300 leading-relaxed">
+          Nuestro equipo de docentes está conformado por profesionales altamente 
+          capacitados, comprometidos con la enseñanza y la formación integral 
+          de cada estudiante.
+        </p>
       </div>
-      <div class="text-center">
-        <h1 class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-5xl">UNIVERSIDAD NACIONAL DE CAÑETE</h1>
-        <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">Lima - Cañete - San Vicente</p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="#" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Entrar</a>
-          <a href="#" class="text-sm/6 font-semibold text-white">Leer mas<span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+      <!-- Tarjetas -->
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:col-span-2 lista-estudiantes">
+        <li class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Docente 1" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
+          <h3 class="text-lg font-semibold">Juan Pérez</h3>
+          <p class="text-gray-400 text-sm">Matemáticas</p>
+        </li>
+
+        <li class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Docente 2" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
+          <h3 class="text-lg font-semibold">María López</h3>
+          <p class="text-gray-400 text-sm">Lengua</p>
+        </li>
+
+        <li class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Docente 3" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
+          <h3 class="text-lg font-semibold">Carlos Díaz</h3>
+          <p class="text-gray-400 text-sm">Ciencias</p>
+        </li>
+
+        <li class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform">
+          <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Docente 4" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
+          <h3 class="text-lg font-semibold">Ana Torres</h3>
+          <p class="text-gray-400 text-sm">Historia</p>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
