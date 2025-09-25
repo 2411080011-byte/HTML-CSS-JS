@@ -1,0 +1,76 @@
+
+.fondo-principal{
+    position: absolute;
+    z-index: 10;
+    height: 130vh;
+}
+
+.overlay, .overlay-img{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.818);
+    z-index: 5;
+}
+
+.overlay-img{
+    z-index: 0;
+}
+
+.texto-estudiantes{
+    width: 80%;
+    margin: auto;
+}
+
+.lista-estudiantes{
+    width: 80%;
+    height: 280px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.lista-estudiantes li{
+    display: flex;
+    margin: auto;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.288);
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    transition: .2s;
+}
+
+.lista-estudiantes li:hover{
+    background-color: rgba(0, 0, 0, 0.286);
+    transition: all .2s linear;
+    filter: brightness(1.3);
+}
+
+.lista-estudiantes li .li-estudiantes{
+    margin: auto;
+}
+
+.lista-estudiantes li .li-estudiantes img{
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.571);
+}
+
+
+@media (max-width: 720px){
+    .lista-estudiantes{
+        width: 90%;
+        height: 200px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+
+    .lista-estudiantes li{
+        padding: 20px 0;
+    }
+}
