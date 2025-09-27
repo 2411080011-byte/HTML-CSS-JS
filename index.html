@@ -4,68 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PORTAFOLIO</title>
-    
     <link rel="stylesheet" href="styles.css">
-
     <meta name="author" content="Jesus Miguel Arotinco Chumpitaz">
     <meta name="title" content="PORTAFOLIO">
     <meta name="description" content="Portafolio personal">
 </head>
-<body>
-    <div id="container">
-  
-  
-</div>
-    <header>
-        <h1 class="title">
-            AROTINCO CHUMPITAZ JESUS MIGUEL
-        </h1>
-        <nav>
-            <ul>
-                <li><a href="maqueta/maquetacion.html">Maquetación</a></li>
-                <li><a href="css2/CSS2.html">Diseño 2</a></li>
-                <li><a href="css3/CSS3.html">Diseño 3</a></li>
-                <li><a href="tail/tail/tail.html">TAILWIND</a></li>
+<body class="cuerpo">
+
+    <header class="encabezado">
+        <h1 class="titulo-principal">AROTINCO CHUMPITAZ JESUS MIGUEL</h1>
+        <nav class="barra-navegacion">
+            <ul class="lista-navegacion">
+                <li><a class="enlace-nav" href="maqueta/maquetacion.html">Maquetación</a></li>
+                <li><a class="enlace-nav" href="css2/CSS2.html">Diseño 2</a></li>
+                <li><a class="enlace-nav" href="css3/CSS3.html">Diseño 3</a></li>
+                <li><a class="enlace-nav" href="tail/tail/tail.html">TAILWIND</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="pagina-main">
-        <section id="sobre-mi">
-            <h1>Sobre mi</h1>
-            <p>Hola, mi nombre es Jesús Miguel Arotinco Chumpitaz, estudiante del IV ciclo de la carrera de Ingeniería de Sistemas.</p>
-            <p>Actualmente, me interesa mucho el mundo de la programación y la tecnología, pero sobre todo el área de Ciberseguridad, tanto de la información como de las redes, ya que esta área en genereal es la que se se encarga de proteger los sistemas informáticos, redes y datos de ataques cibernéticos, garantizando la confidencialidad, integridad y disponibilidad de la información.</p>
+    <main class="contenido-principal">
+
+        <!-- SOBRE MI -->
+        <section class="seccion sobre-mi">
+            <div class="contenido-seccion">
+                <div class="texto-seccion">
+                    <h1 class="titulo-seccion">Sobre mí</h1>
+                    <p class="texto">Hola, mi nombre es Jesús Miguel Arotinco Chumpitaz, estudiante del IV ciclo de la carrera de Ingeniería de Sistemas.</p>
+                    <p class="texto">Actualmente, me interesa mucho el mundo de la programación y la tecnología, pero sobre todo el área de Ciberseguridad, tanto de la información como de las redes.</p>
+                </div>
+                <div class="imagen-seccion">
+                    <img src="tail/imagenes/YO.jpg" alt="Sobre mí" class="icono-seccion">
+                </div>
+            </div>
         </section>  
 
-        <section id="mis-proyectos">
-            <h1>Proyectos</h1>
-            <article>
-                <p>- Juego "El Ahorcado" (Java - POO)</p>
-                <p>- Sistema de registro de Alumnos (Java - Mysql)</p>
-            </article>
-            <article>
-                <p>- Pequeña app para guardar contactos (Android Studios - Java)</p>
-                <p>- Reproductor de música personal (Java gráfico)</p>
-            </article>
+        <!-- PROYECTOS -->
+        <section class="seccion mis-proyectos">
+            <div class="contenido-seccion">
+                <div class="texto-seccion">
+                    <h1 class="titulo-seccion">Proyectos</h1>
+                    <div class="grid-articulos">
+                        <article class="articulo">
+                            <p class="texto">- Juego "El Ahorcado" (Java - POO)</p>
+                            <p class="texto">- Sistema de registro de Alumnos (Java - Mysql)</p>
+                        </article>
+                        <article class="articulo">
+                            <p class="texto">- Pequeña app para guardar contactos (Android Studios - Java)</p>
+                            <p class="texto">- Reproductor de música personal (Java gráfico)</p>
+                        </article>
+                    </div>
+                </div>
+                <div class="imagen-seccion">
+                    <img src="tail/imagenes/contac.webp" alt="Proyectos" class="icono-seccion">
+                </div>
+            </div>
         </section>
 
-        <section id="datos-extras">
-            <h1>Tecnologías</h1>
-            <article>
-                <p>- Java Intermedio Avanzado</p>
-                <p>- Android Studios (Java) básico</p>
-            </article>
-            <article>
-                <p>- Css3 intermedio</p>
-                <p>- Html:5 intermedio</p>
-            </article>
+        <!-- TECNOLOGÍAS -->
+        <section class="seccion datos-extras">
+            <div class="contenido-seccion">
+                <div class="texto-seccion">
+                    <h1 class="titulo-seccion">Tecnologías</h1>
+                    <div class="grid-articulos">
+                        <article class="articulo">
+                            <p class="texto">- Java Intermedio Avanzado</p>
+                            <p class="texto">- Android Studios (Java) básico</p>
+                        </article>
+                        <article class="articulo">
+                            <p class="texto">- Css3 intermedio</p>
+                            <p class="texto">- Html5 intermedio</p>
+                        </article>
+                    </div>
+                </div>
+                <div class="imagen-seccion">
+                    <img src="tail/imagenes/java.png" alt="Tecnologías" class="icono-seccion">
+                </div>
+            </div>
         </section>
+
     </main>
 
-    <footer>
-        <h2>Correo: 2411080011@undc.edu.pe</h2>
-        <h2>Telefono: 956 - 101 - 358</h2>
-        <h2>Ocupación: Estudiante de Ing. Sistemas</h2>
+    <footer class="pie-pagina">
+        <h2 class="dato-contacto">Correo: 2411080011@undc.edu.pe</h2>
+        <h2 class="dato-contacto">Teléfono: 956 - 101 - 358</h2>
+        <h2 class="dato-contacto">Ocupación: Estudiante de Ing. Sistemas</h2>
     </footer>
+
 </body>
 </html>
