@@ -106,12 +106,12 @@ body {
   animation: barra-anim 3s linear infinite;
   border-radius: 2px;
 }
-
+/* 
 @keyframes barra-anim {
   0% { left: -100%; }
   50% { left: 0%; }
   100% { left: 100%; }
-}
+} */
 
 /* --- CONTENIDO PRINCIPAL --- */
 .contenido-principal {
