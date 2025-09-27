@@ -52,14 +52,26 @@ body {
 .barra-navegacion {
   margin: 15px auto 0 auto;
   max-width: 100%;
+  overflow-x: auto;                 /* scroll horizontal */
+  -webkit-overflow-scrolling: touch;/* suave en móviles */
+}
+
+/* Ocultar scroll en navegadores */
+.barra-navegacion::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.barra-navegacion {
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;     /* Firefox */
 }
 
 .lista-navegacion {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   gap: 15px;
   list-style: none;
+  padding: 0 10px;
 }
 
 .enlace-nav {
@@ -205,7 +217,7 @@ body {
 
 @media (max-width: 600px) {
   .barra-navegacion {
-    width: 100%;
+    width: 90%;
     margin: 5px auto 0 auto;
     padding: 10px 0;
     background: #1a002a;
