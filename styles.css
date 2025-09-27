@@ -50,10 +50,11 @@ body {
 
 /* --- NAVEGACIÓN --- */
 .barra-navegacion {
-  margin: 15px auto 0 auto;
   max-width: 100%;
+  margin: 10px auto 0 auto;
   overflow-x: auto;                 /* scroll horizontal */
   -webkit-overflow-scrolling: touch;/* suave en móviles */
+  padding: 13px 0;
 }
 
 /* Ocultar scroll en navegadores */
@@ -67,7 +68,7 @@ body {
 
 .lista-navegacion {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: nowrap;
   gap: 15px;
   list-style: none;
@@ -89,7 +90,7 @@ body {
 .enlace-nav:hover {
   background: #ff3c90;
   color: #fff;
-  box-shadow: 0 0 10px #ff3c90;
+  box-shadow: 0 0 5px #ff3c90;
 }
 
 /* --- CONTENIDO PRINCIPAL --- */
@@ -225,6 +226,7 @@ body {
 
   .lista-navegacion {
     row-gap: 25px;
+    justify-content: flex-start;
   }
 
   .enlace-nav {
