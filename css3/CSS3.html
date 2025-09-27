@@ -3,65 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS2</title>
+    <title>Portafolio - Jesús Arotinco</title>
     <link rel="stylesheet" href="styles_3.css">
-
-    <meta name="author" content="Jesus Miguel Arotinco Chumpitaz">
-    <meta name="title" content="PORTAFOLIO">
+    <meta name="author" content="Jesús Miguel Arotinco Chumpitaz">
     <meta name="description" content="Portafolio personal">
-
 </head>
 <body>
-    <header>
-        <h1 class="color-change-2x-title">PORTAFOLIO</h1>
-        <nav>
-            <ul>
-                <li><a  class="color-change-2x" href="../maqueta/maquetacion.html">Maquetación</a></li>
-                <li><a  class="color-change-2x" href="../index.html">Diseño 1</a></li>
-                <li><a  class="color-change-2x" href="../css2/CSS2.html">Diseño 2</a></li>
-                <li><a href="../tail/tail/tail.html">TAILWIND</a></li>
+
+    <!-- FONDO TIPO MATRIX -->
+    <canvas id="fondo-codigo"></canvas>
+
+    <!-- CABECERA -->
+    <header class="cabecera">
+        <h1 class="titulo-cabecera texto-animado">JESÚS AROTINCO CHUMPITAZ</h1>
+        <nav class="menu-principal">
+            <ul class="lista-navegacion">
+                <li><a class="enlace-menu" href="../maqueta/maquetacion.html">Maquetación</a></li>
+                <li><a class="enlace-menu" href="../index.html">Diseño 1</a></li>
+                <li><a class="enlace-menu" href="../css2/CSS2.html">Diseño 2</a></li>
+                <li><a class="enlace-menu" href="../tail/tail/tail.html">TAILWIND</a></li>
+                <li><a class="enlace-menu" href="../tail/tail/tail.html">@media-Resp</a></li>
+                <li><a class="enlace-menu" href="../tail/tail/tail.html">Javascript</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="pagina-main">
-        <section id="sobre-mi">
-            <h1>Sobre mi</h1>
-            <p>Hola, mi nombre es Jesús Miguel Arotinco Chumpitaz, estudiante del IV ciclo de la carrera de Ingeniería de Sistemas.</p>
-            <p>Actualmente, me interesa mucho el mundo de la programación y la tecnología, pero sobre todo el área de Ciberseguridad, tanto de la información como de las redes, ya que esta área en genereal es la que se se encarga de proteger los sistemas informáticos, redes y datos de ataques cibernéticos, garantizando la confidencialidad, integridad y disponibilidad de la información.</p>
-        </section>  
-        
-        <div class="datos">
-            <section id="mis-proyectos">
-                <h1>Proyectos</h1>
-                <article>
-                    <p>- Juego "El Ahorcado" (Java - POO)</p>
-                    <p>- Sistema de registro de Alumnos (Java - Mysql)</p>
-                </article>
-                <article>
-                    <p>- Pequeña app para guardar contactos (Android Studios - Java)</p>
-                    <p>- Reproductor de música personal (Java gráfico)</p>
-                </article>
-            </section>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenedor-principal">
 
-            <section id="datos-extras">
-                <h1>Tecnologías</h1>
-                <article>
-                    <p>- Java Intermedio Avanzado</p>
-                    <p>- Android Studios (Java) básico</p>
-                </article>
-                <article>
-                    <p>- Css3 intermedio</p>
-                    <p>- Html:5 intermedio</p>
-                </article>
-            </section>
-        </div>
+        <!-- SOBRE MÍ -->
+        <section id="sobre-mi" class="sobre-mi">
+            <div class="texto-sobre-mi">
+                <h2>Sobre mí</h2>
+                <p>Hola, mi nombre es Jesús Miguel Arotinco Chumpitaz, estudiante del IV ciclo de Ingeniería de Sistemas.</p>
+                <p>Actualmente me interesa el mundo de la programación y la tecnología, especialmente Ciberseguridad, protegiendo sistemas, redes y datos de ataques cibernéticos.</p>
+            </div>
+            <div class="imagen-sobre-mi">
+                <img src="../tail/imagenes/img1.jpg" alt="Imagen sobre mi">
+            </div>
+        </section>
+
+        <!-- PROYECTOS -->
+        <section id="mis-proyectos" class="proyectos">
+            <img src="../tail/imagenes/android.webp" alt="Imagen proyectos">
+            <h2 class="titulo-seccion">Proyectos</h2>
+            <article class="texto-seccion">
+                <p>- Juego "El Ahorcado" (Java - POO)</p>
+                <p>- Sistema de registro de Alumnos (Java - MySQL)</p>
+                <p>- App para guardar contactos (Android Studio - Java)</p>
+                <p>- Reproductor de música personal (Java gráfico)</p>
+            </article>
+        </section>
+
+        <!-- TECNOLOGÍAS -->
+        <section id="datos-extras" class="tecnologias">
+            <img src="../tail/imagenes/java.png" alt="Imagen tecnologías">
+            <h2 class="titulo-seccion">Tecnologías</h2>
+            <article class="texto-seccion">
+                <p>- Java Intermedio Avanzado</p>
+                <p>- Android Studio básico</p>
+                <p>- CSS3 Intermedio</p>
+                <p>- HTML5 Intermedio</p>
+            </article>
+        </section>
+
     </main>
 
-    <footer>
-        <h2>Correo: 2411080011@undc.edu.pe</h2>
-        <h2>Telefono: 956 - 101 - 358</h2>
-        <h2>Ocupación: Estudiante de Ing. Sistemas</h2>
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie-pagina">
+        <div class="contenedor-footer">
+            <div class="info-contacto">Correo: 2411080011@undc.edu.pe</div>
+            <div class="info-contacto">Teléfono: 956 - 101 - 358</div>
+            <div class="info-contacto">Ocupación: Estudiante de Ing. Sistemas</div>
+        </div>
     </footer>
+
+    <!-- SCRIPT MATRIX -->
+    <script>
+        const canvas = document.getElementById("fondo-codigo");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = "0011"; // letras o números que quieras
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(0);
+
+        function draw() {
+            ctx.fillStyle = "rgba(18,31,29,0.1)"; // efecto estela
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#39ff14";
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                drops[i]++;
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+            }
+        }
+
+        setInterval(draw, 50);
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+
 </body>
 </html>
