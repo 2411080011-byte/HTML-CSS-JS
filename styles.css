@@ -1,4 +1,6 @@
 /* --- FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
 @font-face {
   font-family: 'Monoton';
   font-style: normal;
@@ -39,11 +41,12 @@ body {
 
 .titulo-principal {
   text-align: center;
-  font-size: 1.8rem;
-  font-family: Monoton, cursive;
+  font-size: 2rem;
+  font-family: 'Merriweather', serif;
   text-shadow: 0 0 8px #FF1177, 0 0 15px #FF1177;
   animation: neon1 1.5s ease-in-out infinite alternate;
   color: white;
+  word-wrap: break-word;
 }
 
 /* --- NAVEGACIÓN --- */
@@ -69,7 +72,7 @@ body {
   border-radius: 20px;
   border: 1px solid rgba(255, 60, 144, 0.6);
   background: rgba(255, 60, 144, 0.1);
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
   white-space: nowrap;
 }
 
@@ -77,6 +80,34 @@ body {
   background: #ff3c90;
   color: #fff;
   box-shadow: 0 0 10px #ff3c90;
+}
+
+/* --- NUEVA BARRA ANIMADA --- */
+.barra-animada {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  margin-top: 18px;
+  background: transparent;
+  overflow: hidden;
+}
+
+.barra-animada::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff3c90, #db00ff, #ff3c90);
+  animation: barra-anim 3s linear infinite;
+  border-radius: 2px;
+}
+
+@keyframes barra-anim {
+  0% { left: -100%; }
+  50% { left: 0%; }
+  100% { left: 100%; }
 }
 
 /* --- CONTENIDO PRINCIPAL --- */
@@ -97,12 +128,6 @@ body {
   padding: 25px 20px;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.seccion:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
 }
 
 /* --- GRID INTERNO --- */
@@ -123,10 +148,8 @@ body {
   width: 200px;
   height: 200px;
   object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Imagen circular con borde oscuro y filtro blanco y negro leve */
 .sobre-mi .icono-seccion {
   border-radius: 50%;
   border: 3px solid #222;
@@ -165,12 +188,6 @@ body {
   padding: 15px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.articulo:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 /* --- PIE DE PÁGINA --- */
@@ -215,49 +232,29 @@ body {
   .dato-contacto { font-size: 0.9rem; }
   .contenido-seccion { grid-template-columns: 1fr 150px; }
   .icono-seccion { width: 140px; height: 140px; }
+  .barra-animada {margin-top: 0;}
 }
 
 @media (max-width: 600px) {
-  /* --- SCROLL AJUSTADO A OPCIONES --- */
   .barra-navegacion {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 10px 0 20px 0;
-    position: relative;
-    background: #1a002a;
-    border-bottom: 4px solid transparent;
-
-    /* Ocultar scrollbars */
-    scrollbar-width: none; /* Firefox */
-  }
-  .barra-navegacion::-webkit-scrollbar { display: none; } /* Chrome, Safari */
-
-  /* Animación de borde inferior */
-  .barra-navegacion::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -100%;
+    overscroll-behavior-x: none;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #ff3c90, #db00ff, #ff3c90);
-    animation: barra-anim 3s linear infinite;
-    border-radius: 2px;
+    margin: 0 auto;
+    padding: 10px 0;
+    background: #1a002a;
+    scrollbar-width: none;
   }
-
-  @keyframes barra-anim {
-    0% { left: -100%; }
-    50% { left: 0%; }
-    100% { left: 100%; }
-  }
+  .barra-navegacion::-webkit-scrollbar { display: none; }
+  .barra-animada {margin-top: 0;}
 
   .lista-navegacion {
+    display: flex;
     flex-wrap: nowrap;
-    display: inline-flex;
     gap: 10px;
-    padding: 0 10px;
+    padding: 0;
+    margin: 0;
+    min-width: max-content;
   }
 
   .enlace-nav {
@@ -266,7 +263,6 @@ body {
     padding: 8px 14px;
   }
 
-  /* Ocultar imágenes en pantallas pequeñas */
   .icono-seccion { display: none; }
   .contenido-seccion { grid-template-columns: 1fr; }
   .grid-articulos { grid-template-columns: 1fr; }
