@@ -153,7 +153,7 @@ body {
 .sobre-mi .icono-seccion {
   border-radius: 50%;
   border: 3px solid #222;
-  filter: grayscale(30%);
+  filter: grayscale(10%);
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
@@ -239,7 +239,7 @@ body {
   .barra-navegacion {
     overflow-x: auto;
     overscroll-behavior-x: none;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     padding: 10px 0;
     background: #1a002a;
