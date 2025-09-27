@@ -34,17 +34,13 @@ body {
   background: rgb(30, 0, 48);
   box-shadow: 0 0 6px #ff3c90;
   padding: 20px 10px;
-  position: sticky;
-  top: 0;
   z-index: 10;
-  will-change: transform; /* fuerza renderizado en GPU */
-  backface-visibility: hidden;
-  transform: translateZ(0); /* evita tirones al hacer scroll */
 }
 
 .titulo-principal {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  padding: 0 4px;
   font-family: 'Merriweather', serif;
   text-shadow: 0 0 8px #FF1177, 0 0 15px #FF1177;
   animation: neon1 1.5s ease-in-out infinite alternate;
@@ -55,7 +51,6 @@ body {
 /* --- NAVEGACIÓN --- */
 .barra-navegacion {
   margin: 15px auto 0 auto;
-  width: fit-content;
   max-width: 100%;
 }
 
@@ -85,34 +80,6 @@ body {
   box-shadow: 0 0 10px #ff3c90;
 }
 
-/* --- NUEVA BARRA ANIMADA --- */
-.barra-animada {
-  position: relative;
-  width: 100%;
-  height: 4px;
-  margin-top: 18px;
-  background: transparent;
-  overflow: hidden;
-}
-
-.barra-animada::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, #ff3c90, #db00ff, #ff3c90);
-  animation: barra-anim 3s linear infinite;
-  border-radius: 2px;
-}
-/* 
-@keyframes barra-anim {
-  0% { left: -100%; }
-  50% { left: 0%; }
-  100% { left: 100%; }
-} */
-
 /* --- CONTENIDO PRINCIPAL --- */
 .contenido-principal {
   padding: 30px 15px;
@@ -133,7 +100,6 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-/* --- GRID INTERNO --- */
 .contenido-seccion {
   display: grid;
   grid-template-columns: 1fr 220px;
@@ -235,33 +201,21 @@ body {
   .dato-contacto { font-size: 0.9rem; }
   .contenido-seccion { grid-template-columns: 1fr 150px; }
   .icono-seccion { width: 140px; height: 140px; }
-  .barra-animada {margin-top: 0;}
 }
 
 @media (max-width: 600px) {
   .barra-navegacion {
-    overflow-x: auto;
-    overscroll-behavior-x: none;
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 5px auto 0 auto;
     padding: 10px 0;
     background: #1a002a;
-    scrollbar-width: none;
   }
-  .barra-navegacion::-webkit-scrollbar { display: none; }
-  .barra-animada {margin-top: 0;}
 
   .lista-navegacion {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
-    padding: 0;
-    margin: 0;
-    min-width: max-content;
+    row-gap: 25px;
   }
 
   .enlace-nav {
-    flex: 0 0 auto;
     font-size: 0.95rem;
     padding: 8px 14px;
   }
