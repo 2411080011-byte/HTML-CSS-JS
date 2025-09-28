@@ -308,6 +308,14 @@ body {
   .lista-navegacion { gap: 10px; justify-content: flex-start; }
   .enlace-menu { padding: 8px 12px; font-size: 0.9rem; }
 
+  /* Desactivar animación de los botones */
+  .enlace-menu:hover{
+    color: white;
+    box-shadow: 0 0 10px #39ff14, 0 0 5px #39ff14 inset;
+    background: radial-gradient(circle, rgba(57,255,20,0.3) 0%, transparent 60%);
+    transform: scale(0);
+  }
+  
   /* --- Ajuste del título para móviles pequeños --- */
   .titulo-cabecera {
     font-size: clamp(1.3rem, 10vw, 1.8rem);

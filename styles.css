@@ -234,6 +234,16 @@ body {
     padding: 8px 14px;
   }
 
+  /* Desactivar animación de los botones */
+
+  .enlace-nav:hover {
+    background: rgba(255, 60, 144, 0.1);
+    color: #fff;
+    box-shadow: 0 0 5px #ff3c90;
+  }
+
+  /* --- */
+
   .icono-seccion { display: none; }
   .contenido-seccion { grid-template-columns: 1fr; }
   .grid-articulos { grid-template-columns: 1fr; }

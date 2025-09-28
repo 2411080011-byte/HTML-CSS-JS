@@ -238,6 +238,22 @@ body {
     padding: 10px 16px;
     font-size: .95rem;
   }
+
+  /* Desactivar animacion de los botones */
+  .enlace-nav:hover {
+    background: none;
+    box-shadow: 0 0 5px #00e5ff, 0 0 20px #00e5ff, 0 0 15px #00e5ff;
+    transform: none;
+    animation: none;
+  }
+
+  .enlace-nav:hover::after {
+    top: -50%;
+    left: -50%;
+  }
+  
+  /* -- */
+
   .contenedor-footer {
     flex-direction: column;
     gap: 15px;
