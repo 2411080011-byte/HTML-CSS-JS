@@ -1,0 +1,98 @@
+/* =========================
+   COLORES PRINCIPALES
+========================= */
+:root {
+  --color-sidebar: #0a0a0a;          /* sidebar oscuro */
+  --color-sidebar-hover: #1a1a1a;    
+  --color-sidebar-border: #2a2a2a;   
+  --color-principal: #0ea5e9;        
+  --color-texto-menu: #f9fafb;       
+  --color-icono-menu: #f9fafb;       
+}
+
+
+/* =========================
+   BOTONES MENÚ
+========================= */
+#sidebar nav ul li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  color: var(--color-texto-menu);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+#sidebar nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-principal);
+  transition: left 0.4s ease-in-out;
+}
+#sidebar nav ul li a:hover::after {
+  left: 0;
+}
+#sidebar nav ul li a span:first-child {
+  color: var(--color-icono-menu);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+#sidebar nav ul li a:hover span:first-child {
+  transform: scale(1.25) rotate(8deg);
+  color: var(--color-principal);
+}
+#sidebar nav ul li a:hover {
+  background-color: var(--color-sidebar-hover);
+  color: var(--color-principal);
+  box-shadow: inset 0 0 8px rgba(14, 165, 233, 0.25);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+#sidebar {
+  background-color: var(--color-sidebar);
+  color: var(--color-texto-menu);
+}
+
+/* =========================
+   MENÚ
+========================= */
+#sidebar nav ul li a {
+  color: var(--color-texto-menu);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Hover */
+#sidebar nav ul li a:hover {
+  background-color: var(--color-sidebar-hover);
+  color: var(--color-principal);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 640px) {
+  main {
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  #sobre-mi img {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  footer p {
+    font-size: 0.75rem;
+  }
+}
+
