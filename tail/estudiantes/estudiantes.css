@@ -45,7 +45,7 @@ body.fade-page.loaded {
   height: 100vh;
   position: fixed;
   top: 0;
-  background-color: rgba(39, 39, 28, 0.651);
+  background-color: rgba(40, 40, 25, 0.783);
   z-index: 5;
   filter: contrast(1.3) brightness(1.1);
 }
@@ -61,6 +61,10 @@ body.fade-page.loaded {
   width: 80%;
   margin: auto;
   text-align: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 20px;
+  border-radius: 20px;
 }
 
 /* =========================
@@ -78,19 +82,44 @@ body.fade-page.loaded {
 }
 
 .lista-estudiantes li {
-  display: flex;
-  margin: auto;
+  position: relative;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.288);
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 30px;
-  transition: all 0.2s linear;
-  padding: 20px 10px;
+  padding: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Brillo diagonal animado */
+.lista-estudiantes li::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: rotate(25deg) translateX(-120%);
+  animation: brillo 4s infinite;
+  pointer-events: none;
+}
+
+@keyframes brillo {
+  0% { transform: rotate(25deg) translateX(-120%); }
+  100% { transform: rotate(25deg) translateX(120%); }
+}
+
+
 .lista-estudiantes li:hover {
-  background-color: rgba(0, 0, 0, 0.286);
-  filter: brightness(1.3);
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.292);
 }
 
 .lista-estudiantes li .li-estudiantes {
@@ -98,7 +127,7 @@ body.fade-page.loaded {
 }
 
 .lista-estudiantes li .li-estudiantes img {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.571);
+  border: 1px solid rgba(255, 255, 255, 0.194);
   filter: brightness(1.1);
 }
 
@@ -130,8 +159,9 @@ body.fade-page.loaded {
 @media (max-width: 720px) {
   .lista-estudiantes {
     grid-template-columns: repeat(1, 1fr);
-    width: 90%;
+    width: 100%;
     gap: 20px;
+    margin-top: 0;
   }
 
   .lista-estudiantes li {
@@ -139,6 +169,6 @@ body.fade-page.loaded {
   }
 
   .texto-estudiantes {
-    width: 90%;
+    width: 100%;
   }
 }

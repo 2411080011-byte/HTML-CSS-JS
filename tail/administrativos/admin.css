@@ -1,48 +1,57 @@
-/* estado inicial */
+/* =========================
+   EFECTO DE CARGA
+========================= */
 body.fade-page {
   opacity: 0;
-  background-color: #000; /* fondo consistente */
+  background-color: #000;
   will-change: opacity;
 }
 
-/* cuando ya está lista */
 body.fade-page.loaded {
   opacity: 1;
   transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 /* =========================
    HEADER & NAVBAR
 ========================= */
 .logo {
-  background-color: white;
+  background-color: #fff;
   border-radius: 50px;
   padding: 5px;
   filter: contrast(3) brightness(0.9);
+  height: 3rem;
+  width: auto;
 }
 
 .opciones a {
-  border: 1px solid rgba(255, 255, 255, 0.195);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 8px 20px;
   border-radius: 50px;
-  transition: border 0.2s ease-in-out;
-  transition: background-color .2s linear, box-shadow .2s linear;
+  transition: border 0.2s ease, background-color 0.2s linear, box-shadow 0.2s linear;
 }
 
-/* === FONDO PRINCIPAL === */
+/* =========================
+   FONDO PRINCIPAL
+========================= */
 .fondo-principal {
+  flex: 1;
+  display: flex;
+  justify-content: center;
   z-index: 10;
+  margin-top: 0;
 }
 
-/* === OVERLAY === */
+/* =========================
+   OVERLAY
+========================= */
 .overlay,
 .overlay-img {
   width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
-  background-color: rgba(39, 39, 28, 0.651);
+  background-color: rgba(40, 40, 25, 0.78);
   z-index: 5;
   filter: contrast(1.3) brightness(1.1);
 }
@@ -52,42 +61,58 @@ body.fade-page.loaded {
 }
 
 /* =========================
-  TEXTO ESTUDIANTES
+   TEXTO ESTUDIANTES
 ========================= */
 .texto-estudiantes {
   width: 80%;
-  margin: auto;
-  text-align: left;
-}
-
-/* =========================
-  LISTA DE ESTUDIANTES
-========================= */
-.lista-estudiantes {
-  width: 80%;
-  margin: auto;
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 25px;
-  margin-top: 30px;
-  margin-bottom: 40px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
 }
 
-/* Cada tarjeta */
+.texto-estudiantes h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* =========================
+   LISTA DE ESTUDIANTES
+========================= */
+.lista-estudiantes {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
 .lista-estudiantes li {
   background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.288);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 20px;
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .lista-estudiantes li:hover {
-  background: rgba(0, 0, 0, 0.4);
   transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Contenedor de imagen + texto en fila */
+.lista-estudiantes p {
+  border: 1px solid rgba(255, 255, 255, 0.37);
+  border-radius: 20px;
+  padding: 15px;
+}
+
+/* Contenido en fila */
 .li-estudiantes {
   display: flex;
   align-items: center;
@@ -104,7 +129,7 @@ body.fade-page.loaded {
   flex-shrink: 0;
 }
 
-/* Texto al lado derecho */
+/* Texto */
 .li-estudiantes .info {
   flex: 1;
   text-align: left;
@@ -114,7 +139,7 @@ body.fade-page.loaded {
   margin: 0;
   font-size: 1.3rem;
   font-weight: bold;
-  color: white;
+  color: #fff;
 }
 
 .li-estudiantes .info p {
@@ -124,34 +149,7 @@ body.fade-page.loaded {
 }
 
 /* =========================
-  LISTA DE ESTUDIANTES
-========================= */
-.lista-estudiantes {
-  width: 80%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  margin-top: 30px;
-  padding-bottom: 20px; /* un poco de respiro */
-}
-
-/* Cada tarjeta */
-.lista-estudiantes li {
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.288);
-  border-radius: 20px;
-  padding: 20px;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.lista-estudiantes li:hover {
-  background: rgba(0, 0, 0, 0.4);
-  transform: scale(1.02);
-}
-
-/* =========================
-  AJUSTE FINAL PARA EL ESPACIO
+   AJUSTES GENERALES
 ========================= */
 body, html {
   margin: 0;
@@ -163,42 +161,58 @@ body, html {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* pega todo arriba */
+  justify-content: flex-start;
 }
-
-.fondo-principal {
-  flex: 1; /* ocupa todo el espacio */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* centra sin dejar vacío abajo */
-}
-
 
 /* =========================
-  RESPONSIVE
+   RESPONSIVE
 ========================= */
-
-/* Tablets y móviles */
 @media (max-width: 720px) {
+  .fondo-principal {
+    width: 100%;
+    flex-direction: column;
+    padding: 0 1rem;
+    margin: auto 0;
+    text-align: center;
+  }
+
+  .texto-estudiantes {
+    width: 100%; /* ocupa casi todo el ancho */
+    margin-bottom: 0;
+  }
+
   .lista-estudiantes {
-    width: 95%;
+    width: 100%; /* tarjetas casi todo el ancho */
+    margin-bottom: 0;
+  }
+
+  .lista-estudiantes li {
+    width: 100%;
+    margin: 0 auto;
   }
 
   .li-estudiantes {
-    flex-direction: row; /* se mantiene imagen izquierda - texto derecha */
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .li-estudiantes img.avatar {
     width: 90px;
     height: 90px;
+    margin-bottom: 10px;
   }
 
   .li-estudiantes .info h3 {
     font-size: 1.1rem;
+    text-align: center;
   }
 
   .li-estudiantes .info p {
     font-size: 0.85rem;
+  }
+
+  .texto-estudiantes h2 {
+    font-size: 1.8rem;
   }
 }
