@@ -1,30 +1,31 @@
+/* estado inicial */
+body.fade-page {
+  opacity: 0;
+  background-color: #000; /* fondo consistente */
+  will-change: opacity;
+}
+
+/* cuando ya está lista */
+body.fade-page.loaded {
+  opacity: 1;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* =========================
    HEADER & NAVBAR
 ========================= */
-header {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.594),
-    rgba(0, 0, 0, 0.594),
-    transparent
-  );
-}
-
 .logo {
   background-color: white;
   border-radius: 50px;
+  padding: 5px;
   filter: contrast(3) brightness(0.9);
 }
 
 .opciones a {
   border: 1px solid rgba(255, 255, 255, 0.195);
-  padding: 4px 10px;
+  padding: 8px 20px;
   border-radius: 50px;
-  transition: border 0.2s ease-in-out;
-}
-
-.opciones a:hover {
-  border: 1px solid rgba(255, 255, 255, 0.473);
+  transition: border 0.2s ease-in-out, background-color .2s linear, box-shadow .2s linear;
 }
 
 /* === FONDO PRINCIPAL === */
@@ -39,7 +40,7 @@ header {
   height: 100vh;
   position: fixed;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.629);
+  background-color: rgba(39, 39, 28, 0.651);
   z-index: 5;
   filter: contrast(1.3) brightness(1.1);
 }
@@ -55,65 +56,96 @@ header {
   width: 80%;
   margin: auto;
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.55); /* vidrio negro */
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
 }
 
 .texto-estudiantes h2 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: white;
+  color: #fff;
 }
 
 .texto-estudiantes p {
   margin-top: 1rem;
   font-size: 1rem;
-  color: #e0e0e0;
+  color: #d4d4d4;
   line-height: 1.6;
 }
 
 /* =========================
    LISTA DE DOCENTES
 ========================= */
-
-.docente-contenedor{
+.docente-contenedor {
   height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.288);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
+  background: rgba(0, 0, 0, 0.6); /* negro elegante */
+  backdrop-filter: blur(10px);
   transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
 
 /* Cada tarjeta */
 .lista-estudiantes li {
-  background: rgba(0, 0, 0, 0.389);
-  border: 1px solid rgba(255, 255, 255, 0.288);
+  position: relative;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
   padding: 20px;
-  transition: transform 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Brillo diagonal animado */
+.lista-estudiantes li::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: rotate(25deg) translateX(-120%);
+  animation: brillo 4s infinite;
+  pointer-events: none;
+}
+
+@keyframes brillo {
+  0% { transform: rotate(25deg) translateX(-120%); }
+  100% { transform: rotate(25deg) translateX(120%); }
 }
 
 .lista-estudiantes li:hover {
-  background-color: rgba(0, 0, 0, 0.286);
-  filter: brightness(1.3);
   transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.292);
 }
 
-/* Contenedor de imagen + texto */
+/* =========================
+   IMÁGENES Y TEXTO
+========================= */
 .li-estudiantes {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-/* Imagen circular */
 .li-estudiantes img.avatar {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
   flex-shrink: 0;
 }
 
-/* Texto al lado derecho */
 .li-estudiantes .info {
   flex: 1;
   text-align: left;
@@ -123,17 +155,17 @@ header {
   margin: 0;
   font-size: 1.3rem;
   font-weight: bold;
-  color: white;
+  color: #fff;
 }
 
 .li-estudiantes .info p {
   margin: 5px 0 0;
   font-size: 0.95rem;
-  color: #e0e0e0;
+  color: #d4d4d4;
 }
 
 /* =========================
-   AJUSTE FINAL PARA EL ESPACIO
+   AJUSTES GENERALES
 ========================= */
 body, html {
   margin: 0;
@@ -146,6 +178,7 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  background: #000; /* fondo negro puro */
 }
 
 /* =========================
@@ -161,22 +194,18 @@ body, html {
   .lista-estudiantes {
     width: 95%;
   }
-
   .li-estudiantes {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   .li-estudiantes img.avatar {
     width: 90px;
     height: 90px;
   }
-
   .li-estudiantes .info h3 {
     font-size: 1.1rem;
   }
-
   .li-estudiantes .info p {
     font-size: 0.85rem;
   }

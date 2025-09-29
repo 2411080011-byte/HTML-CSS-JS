@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="docentes.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="relative bg-gray-900 text-white min-h-screen flex flex-col">
+<body class="relative text-white min-h-screen flex flex-col fade-page">
 
   <!-- Imagen de fondo y overlay -->
   <div class="absolute inset-0 -z-10">
@@ -83,9 +83,9 @@
     <section class="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-7xl mx-auto min-h-screen">
       
       <!-- Texto -->
-      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 lg:col-span-1 self-start docente-contenedor">
+      <div class="backdrop-blur-sm rounded-2xl p-8 lg:col-span-1 self-start docente-contenedor">
         <h2 class="text-3xl font-bold mb-4">Docentes</h2>
-        <p class="text-gray-300 leading-relaxed">
+        <p class="text-gray-200 leading-relaxed">
           Nuestro equipo de docentes está conformado por profesionales altamente 
           capacitados, comprometidos con la enseñanza y la formación integral 
           de cada estudiante.
@@ -95,30 +95,40 @@
       <!-- Tarjetas -->
       <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:col-span-2 lista-estudiantes">
         <li class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Docente 1" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
-          <h3 class="text-lg font-semibold">Juan Pérez</h3>
-          <p class="text-gray-400 text-sm">Matemáticas</p>
+          <img src="../imagenes/img1.jpg" alt="Docente 1" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
+          <h3 class="text-lg font-semibold">Jesús</h3>
+          <p class="text-gray-400 text-sm">Ingeniero de Sistemas</p>
         </li>
 
         <li class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Docente 2" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
-          <h3 class="text-lg font-semibold">María López</h3>
-          <p class="text-gray-400 text-sm">Lengua</p>
+          <img src="../imagenes/YO.jpg" alt="Docente 2" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
+          <h3 class="text-lg font-semibold">Miguel</h3>
+          <p class="text-gray-400 text-sm">Matemático</p>
         </li>
 
         <li class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform">
-          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Docente 3" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
-          <h3 class="text-lg font-semibold">Carlos Díaz</h3>
-          <p class="text-gray-400 text-sm">Ciencias</p>
+          <img src="../imagenes/img2.jpg" alt="Docente 3" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
+          <h3 class="text-lg font-semibold">Arotinco</h3>
+          <p class="text-gray-400 text-sm">Desarrollador Web</p>
         </li>
 
         <li class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform">
-          <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Docente 4" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
-          <h3 class="text-lg font-semibold">Ana Torres</h3>
-          <p class="text-gray-400 text-sm">Historia</p>
+          <img src="../imagenes/img7.jpg" alt="Docente 4" class="w-20 h-20 rounded-full mx-auto border border-white/20 mb-4">
+          <h3 class="text-lg font-semibold">Chumpitaz</h3>
+          <p class="text-gray-400 text-sm">Desarrollador Full Stack</p>
         </li>
       </ul>
     </section>
   </main>
+
+   <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    requestAnimationFrame(() => {
+      document.body.classList.add("loaded");
+    });
+  });
+</script>
+
+
 </body>
 </html>
