@@ -20,7 +20,6 @@ body.fade-page.loaded {
   border-radius: 50px;
   padding: 5px;
   filter: contrast(3) brightness(0.9);
-  height: 3rem;
   width: auto;
 }
 
