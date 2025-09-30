@@ -1,26 +1,47 @@
-function toggleSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay-movil");
-  const textos = document.querySelectorAll(".menu-text");
-  const menuBtn = document.getElementById("menuBtn");
+ const menu = document.getElementById("menu-lateral");
+    const btn = document.getElementById("btn-menu");
+    const overlay = document.getElementById("overlay");
 
-  if (window.innerWidth < 1024) {
-    // Móviles: sidebar sobrepuesto
-    sidebar.classList.toggle("abierto-movil");
-    overlay.classList.toggle("visible");
-  } else {
-    // Escritorio: comportamiento original
-    sidebar.classList.toggle("w-64");
-    sidebar.classList.toggle("w-16");
-    document.getElementById("mainContent").classList.toggle("ml-64");
-    document.getElementById("mainContent").classList.toggle("ml-16");
-  }
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("menu-abierto");
+      menu.classList.toggle("menu-cerrado");
+      overlay.classList.toggle("activo");
 
-  if (sidebar.classList.contains("w-64") || sidebar.classList.contains("abierto-movil")) {
-    setTimeout(() => textos.forEach(el => el.classList.remove("opacity-0")), 200);
-    menuBtn.textContent = "✕";
-  } else {
-    textos.forEach(el => el.classList.add("opacity-0"));
-    menuBtn.textContent = "☰";
-  }
-}
+      btn.textContent = menu.classList.contains("menu-abierto") ? "✖" : "☰";
+    });
+
+    overlay.addEventListener("click", () => {
+      menu.classList.remove("menu-abierto");
+      menu.classList.add("menu-cerrado");
+      overlay.classList.remove("activo");
+      btn.textContent = "☰";
+    });
+
+    // Fondo Matrix
+    const canvas = document.getElementById("fondo-matrix");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const letras = "01";
+    const tamaño = 16;
+    const columnas = canvas.width / tamaño;
+    const drops = Array(Math.floor(columnas)).fill(1);
+
+    function dibujar() {
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0ea5e9";
+      ctx.font = tamaño + "px monospace";
+      for (let i = 0; i < drops.length; i++) {
+        const text = letras.charAt(Math.floor(Math.random() * letras.length));
+        ctx.fillText(text, i * tamaño, drops[i] * tamaño);
+        if (drops[i] * tamaño > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    setInterval(dibujar, 40);
+
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });

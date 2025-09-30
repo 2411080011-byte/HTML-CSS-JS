@@ -1,98 +1,260 @@
-/* =========================
-   COLORES PRINCIPALES
-========================= */
 :root {
-  --color-sidebar: #0a0a0a;          /* sidebar oscuro */
-  --color-sidebar-hover: #1a1a1a;    
-  --color-sidebar-border: #2a2a2a;   
-  --color-principal: #0ea5e9;        
-  --color-texto-menu: #f9fafb;       
-  --color-icono-menu: #f9fafb;       
+  --fondo: #0a0a0a;
+  --hover: #1a1a1a;
+  --borde: #2a2a2a;
+  --principal: #0ea5e9;
+  --texto: #f9fafb;
 }
 
+/* ===== Generales ===== */
+body.cuerpo {
+  margin: 0;
+  background: #121212;
+  color: #000;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+#fondo-matrix {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
 
-/* =========================
-   BOTONES MENÚ
-========================= */
-#sidebar nav ul li a {
-  position: relative;
+/* ===== Botón menú ===== */
+#btn-menu {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  color: var(--principal);
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 300;
+  transition: transform 0.3s ease;
+}
+#btn-menu:hover { transform: scale(1.2); }
+
+/* ===== Sidebar ===== */
+#menu-lateral {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%;
+  background: var(--fondo);
+  color: var(--texto);
+  transition: width 0.4s ease, left 0.4s ease;
+  overflow: hidden;
+  z-index: 200;
+  border-right: 1px solid var(--borde);
+  box-shadow: 2px 0 12px rgba(0,0,0,0.5);
+}
+.menu-cerrado { width: 60px; }
+.menu-abierto { width: 220px; }
+
+/* Encabezado */
+.menu-encabezado {
+  height: 60px;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease-in-out;
-  overflow: hidden;
-  color: var(--color-texto-menu);
-  font-weight: 500;
-  font-size: 0.95rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--borde);
 }
-#sidebar nav ul li a::after {
+.titulo-menu {
+  margin-left: .5rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.menu-abierto .titulo-menu { opacity: 1; }
+
+/* Navegación */
+.menu-navegacion ul {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+}
+.menu-navegacion li { margin-bottom: 1rem; }
+.menu-navegacion a {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .75rem 1rem;
+  text-decoration: none;
+  color: var(--texto);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+}
+.menu-navegacion a::before {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background-color: var(--color-principal);
-  transition: left 0.4s ease-in-out;
-}
-#sidebar nav ul li a:hover::after {
   left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--principal);
+  transition: width 0.3s ease;
 }
-#sidebar nav ul li a span:first-child {
-  color: var(--color-icono-menu);
-  transition: transform 0.3s ease, color 0.3s ease;
+.menu-navegacion a:hover::before { width: 100%; }
+.menu-navegacion a:hover {
+  background: var(--hover);
+  color: var(--principal);
+  transform: translateX(4px);
+  box-shadow: inset 0 0 12px rgba(14,165,233,0.3);
 }
-#sidebar nav ul li a:hover span:first-child {
-  transform: scale(1.25) rotate(8deg);
-  color: var(--color-principal);
+.texto-menu {
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
 }
-#sidebar nav ul li a:hover {
-  background-color: var(--color-sidebar-hover);
-  color: var(--color-principal);
-  box-shadow: inset 0 0 8px rgba(14, 165, 233, 0.25);
+.menu-abierto .texto-menu { opacity: 1; }
+
+/* Usuario */
+.menu-usuario {
+  padding: 1rem;
+  border-top: 1px solid var(--borde);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease;
+}
+.menu-usuario:hover { background: rgba(14,165,233,0.15); }
+.menu-usuario img {
+  width: 35px; height: 35px;
+  border-radius: 50%;
 }
 
-/* =========================
-   SIDEBAR
-========================= */
-#sidebar {
-  background-color: var(--color-sidebar);
-  color: var(--color-texto-menu);
+/* Contenido */
+.contenido { 
+  margin-left: 60px; 
+  padding-top: 10px; 
+  transition: margin-left 0.4s ease; 
+}
+.menu-abierto ~ .contenido { margin-left: 220px; }
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.tarjeta {
+  background: rgba(255,255,255,0.9);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tarjeta:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+.tarjeta.flex {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.animada { animation: fadeInUp 1s ease; }
+.avatar-contenedor {
+  width: 300px;            /* tamaño del círculo */
+  height: 150px;           /* mismo que el ancho */
+  border-radius: 50%;      /* círculo perfecto */
+  overflow: hidden;         /* recorta lo que sobresalga */
+  margin: 0 auto;           /* centra el círculo */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* opcional: sombra */
 }
 
-/* =========================
-   MENÚ
-========================= */
-#sidebar nav ul li a {
-  color: var(--color-texto-menu);
-  font-weight: 500;
-  font-size: 0.95rem;
+.avatar-contenedor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* rellena el círculo sin deformarse */
+  display: block;
 }
 
-/* Hover */
-#sidebar nav ul li a:hover {
-  background-color: var(--color-sidebar-hover);
-  color: var(--color-principal);
+
+/* Proyectos */
+.grid-proyectos {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width:768px) {
+  .grid-proyectos { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width:1024px) {
+  .grid-proyectos { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 640px) {
-  main {
-    padding: 1rem;
-    gap: 2rem;
+/* Tecnologías */
+.lista-tecnologias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+  gap: .75rem;
+}
+
+/* Footer */
+footer {
+  background: black;
+  color: #aaa;
+  text-align: center;
+  padding: 1rem;
+  font-size: .9rem;
+  border-top: 1px solid var(--principal);
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive móviles */
+@media (max-width: 768px) {
+  .btn-menu-contenedor{
+    width: 100%;
+    background-color: #0a0a0a;;
+    height: 5vh;
+    display: flex;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 400;
+  }
+  #btn-menu {
+    position: fixed;
+    top: 10;
+    left: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 300;
+    transition: transform 0.3s ease;
+  }
+  #menu-lateral {
+    width: 220px;
+    left: -220px; /* oculto por defecto */
+  }
+  #menu-lateral.menu-abierto {
+    left: 0; /* aparece deslizando */
+  }
+  .contenido {
+    margin-left: 0 !important; /* no empuja el contenido */
+  }
+  .avatar-contenedor {
+    display: none;
   }
 
-  #sobre-mi img {
-    width: 9rem;
-    height: 9rem;
+  /* Overlay solo en móviles */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 150;
   }
-
-  footer p {
-    font-size: 0.75rem;
-  }
+  .overlay.activo { display: block; }
 }
 
+/* En pantallas grandes, overlay nunca aparece */
+@media (min-width: 769px) {
+  .overlay { display: none !important; }
+}

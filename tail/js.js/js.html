@@ -3,202 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio</title>
+  <title>Portafolio Profesional</title>
   <link rel="stylesheet" href="js.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            sidebar: "#0a0a0a", /* Negro elegante */
-            sidebarHover: "#1a1a1a",
-            sidebarBorder: "#2a2a2a",
-            primary: "#0ea5e9"
-          },
-        },
-      },
-    }
-
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      const mainContent = document.getElementById("mainContent");
-      const texts = document.querySelectorAll(".menu-text");
-      const menuBtn = document.getElementById("menuBtn");
-
-      sidebar.classList.toggle("w-64");
-      sidebar.classList.toggle("w-16");
-
-      mainContent.classList.toggle("ml-64");
-      mainContent.classList.toggle("ml-16");
-
-      if (sidebar.classList.contains("w-64")) {
-        setTimeout(() => texts.forEach(el => el.classList.remove("opacity-0")), 200);
-        menuBtn.textContent = "✕";
-      } else {
-        texts.forEach(el => el.classList.add("opacity-0"));
-        menuBtn.textContent = "☰";
-      }
-    }
-  </script>
 </head>
-<body class="flex overflow-x-hidden text-black relative">
+<body class="cuerpo">
+  <canvas id="fondo-matrix"></canvas>
 
-  <!-- Fondo interactivo tipo Matrix -->
-  <canvas id="matrix-bg" class="fixed inset-0 -z-10"></canvas>
+  <div class="btn-menu-contenedor">
+  <!-- Botón menú SIEMPRE visible -->
+  <button id="btn-menu">☰</button>
+</div>
+  <!-- Overlay para móviles -->
+  <div id="overlay" class="overlay"></div>
 
-  <!-- Sidebar --> 
-   <!-- Sidebar --> 
-<aside id="sidebar" 
-  class="fixed top-0 left-0 h-screen w-16 bg-sidebar text-white flex flex-col 
-  transition-all duration-300 ease-in-out z-40 overflow-hidden">
-    <!-- Header Sidebar --> 
-     <div class="h-16 flex items-center px-3 border-b border-sidebarBorder"> <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md"> <button id="menuBtn" onclick="toggleSidebar()" class="text-white text-2xl focus:outline-none"> ☰ </button> </a> </div> 
+  <!-- Sidebar -->
+  <aside id="menu-lateral" class="menu-cerrado">
+    <div class="menu-encabezado"> 
+    </div>
+    <nav class="menu-navegacion">
+      <ul>
+        <li><a href="#sobre-mi">👤 <span class="texto-menu">Sobre mí</span></a></li>
+        <li><a href="#proyectos">💻 <span class="texto-menu">Proyectos</span></a></li>
+        <li><a href="#tecnologias">⚙️ <span class="texto-menu">Tecnologías</span></a></li>
+        <li><a href="#contacto">📞 <span class="texto-menu">Contacto</span></a></li>
+      </ul>
+    </nav>
+    <div class="menu-usuario">
+      <img src="https://i.pravatar.cc/100" alt="Usuario">
+      <span class="texto-menu">Jesús</span>
+    </div>
+  </aside>
 
-     <!-- Navegación --> 
-      <nav class="flex-1 px-2 py-4 overflow-y-auto overflow-x-hidden"> 
-        <ul class="space-y-2"> <li class="relative"> <a href="#sobre-mi" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebarHover transition duration-300"> <span>👤</span> <span class="menu-text absolute left-12 opacity-0 transition-opacity duration-300 whitespace-nowrap">Sobre mí</span> </a> </li> <li class="relative"> <a href="#proyectos" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebarHover transition duration-300"> <span>💻</span> <span class="menu-text absolute left-12 opacity-0 transition-opacity duration-300 whitespace-nowrap">Proyectos</span> </a> </li> <li class="relative"> <a href="#tecnologias" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebarHover transition duration-300"> <span>⚙️</span> <span class="menu-text absolute left-12 opacity-0 transition-opacity duration-300 whitespace-nowrap">Tecnologías</span> </a> </li> <li class="relative"> <a href="#contacto" class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-sidebarHover transition duration-300"> <span>📞</span> <span class="menu-text absolute left-12 opacity-0 transition-opacity duration-300 whitespace-nowrap">Contacto</span> </a> </li> 
-        </ul> 
-      </nav> 
-      
-      <!-- Usuario --> 
-       <div class="p-4 border-t border-sidebarBorder flex items-center relative"> <img class="w-8 h-8 rounded-full object-cover ring-2 ring-gray-700" src="../imagenes/img2.jpg" alt="User"> <p class="menu-text absolute left-16 opacity-0 transition-opacity duration-300 whitespace-nowrap text-sm font-medium">Jesús Arotinco</p> </div> </aside>
-
-  <!-- Contenido principal -->
-  <div id="mainContent" class="flex-1 ml-16 transition-all duration-300 ease-in-out">
-
-    <!-- Header móvil -->
-    <header class="lg:hidden fixed top-0 left-0 w-full flex items-center justify-between p-4 bg-black text-white z-40">
-      <button onclick="toggleSidebar()">☰</button>
-      <h1 class="text-lg font-semibold">Mi Portafolio</h1>
-    </header>
-
-    <!-- Espaciado para header móvil -->
-    <div class="h-16 lg:hidden"></div>
-
-    <!-- Contenido -->
-    <main class="relative p-6 space-y-16 min-h-screen flex flex-col items-center justify-center">
-
-      <!-- Sobre mí -->
-      <section id="sobre-mi" 
-        class="max-w-4xl w-full bg-white/90 backdrop-blur-md border border-cyan-300/30 rounded-2xl shadow-lg p-8 flex flex-col lg:flex-row items-center gap-8 transform transition duration-500 hover:-translate-y-1 hover:shadow-cyan-500/30">
-        <img src="../imagenes/img1.jpg" alt="Jesús Arotinco" 
-            class="w-52 h-52 rounded-full object-cover shadow-lg ring-4 ring-cyan-400/50 hover:scale-105 transition-transform duration-300">
+  <!-- Contenido -->
+  <div class="contenido">
+    <main>
+      <section id="sobre-mi" class="tarjeta animada flex">
+        <div class="avatar-contenedor">
+  <img src="../imagenes/img1.jpg" alt="Foto">
+</div>
         <div>
-          <h1 class="text-4xl font-extrabold mb-4 text-cyan-500 tracking-tight">Sobre mí</h1>
-          <p class="text-gray-800 leading-relaxed text-lg">
-            Soy <strong class="text-black">Jesús Arotinco</strong>, ingeniero de sistemas con pasión por la tecnología, el desarrollo de software y la innovación digital. 
-            Me especializo en crear soluciones eficientes que combinan 
-            <em class="text-cyan-700">desarrollo web, aplicaciones y automatización de procesos</em>.  
-            Siempre busco aprender nuevas herramientas y lenguajes para mantenerme a la vanguardia del sector tecnológico.
+          <h2>Sobre mí</h2>
+          <p>
+            Mi nombre es Jesús Miguel Arotinco Chumpitaz y actualmente curso el cuarto ciclo de la carrera de Ingeniería de Sistemas. Me apasiona el desarrollo web por la forma en que une creatividad y lógica para crear soluciones digitales útiles y atractivas.
           </p>
+          <p>
+            No obstante, mi principal interés se centra en la ciberseguridad, área en la que busco especializarme para proteger sistemas, redes y datos frente a los constantes desafíos de un entorno tecnológico en evolución.
+          </p>
+      </section>
+
+      <section id="proyectos" class="tarjeta animada">
+        <h2>Proyectos</h2>
+        <div class="grid-proyectos">
+          <div class="tarjeta">Aplicación para administrar contactos (Android estudios)</div>
+          <div class="tarjeta">Reproductor de música personal (archivos locales)</div>
+          <div class="tarjeta">Sistema de registro de estudiantes con conexión a base de datos</div>
         </div>
       </section>
 
-      <!-- Proyectos -->
-      <section id="proyectos" class="max-w-6xl w-full">
-        <h2 class="text-3xl font-bold mb-8 text-cyan-500 text-center">🚀 Proyectos Destacados</h2>
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-cyan-500/30 transition duration-300 transform hover:-translate-y-1">
-            <img src="../imagenes/java.png" alt="Sistema Web de Gestión" class="w-full h-52 object-cover">
-            <div class="p-5">
-              <h3 class="font-semibold text-xl mb-2 text-cyan-700">Sistema Web de Gestión</h3>
-              <p class="text-gray-600 text-sm">Plataforma web para la gestión integral de inventarios y reportes en tiempo real.</p>
-            </div>
-          </div>
-          <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-cyan-500/30 transition duration-300 transform hover:-translate-y-1">
-            <img src="../imagenes/java.png" alt="Aplicación Móvil" class="w-full h-52 object-cover">
-            <div class="p-5">
-              <h3 class="font-semibold text-xl mb-2 text-cyan-700">Aplicación Móvil de Automatización</h3>
-              <p class="text-gray-600 text-sm">Automatización de procesos internos para mejorar productividad y eficiencia.</p>
-            </div>
-          </div>
-          <div class="bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-cyan-500/30 transition duration-300 transform hover:-translate-y-1">
-            <img src="../imagenes/java.png" alt="Dashboard de Datos" class="w-full h-52 object-cover">
-            <div class="p-5">
-              <h3 class="font-semibold text-xl mb-2 text-cyan-700">Dashboard de Análisis de Datos</h3>
-              <p class="text-gray-600 text-sm">Panel interactivo para visualización de datos y generación de reportes analíticos.</p>
-            </div>
-          </div>
+      <section id="tecnologias" class="tarjeta animada">
+        <h2>Tecnologías</h2>
+        <div class="lista-tecnologias">
+          <div class="tarjeta">HTML Intermedio</div>
+          <div class="tarjeta">CSS Intermedio</div>
+          <div class="tarjeta">Java Intermedio</div>
+          <div class="tarjeta">Android Studio básico</div>
         </div>
       </section>
 
-      <!-- Tecnologías -->
-      <section id="tecnologias" 
-        class="max-w-4xl w-full bg-white/90 backdrop-blur-md border border-cyan-300/30 rounded-2xl shadow-lg p-8 transform transition duration-500 hover:-translate-y-1 hover:shadow-cyan-500/30">
-        <h2 class="text-3xl font-bold mb-6 text-cyan-500">⚡ Tecnologías y Herramientas</h2>
-        <ul class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 text-gray-800 text-lg">
-          <li>HTML, CSS, JavaScript</li>
-          <li>Python, Java, C++</li>
-          <li>SQL, MySQL, PostgreSQL</li>
-          <li>React, Node.js, Tailwind CSS</li>
-          <li>Git, GitHub</li>
-          <li>Agile, Scrum</li>
-        </ul>
+      <section id="contacto" class="tarjeta animada">
+        <h2>Contacto</h2>
+        <div class="lista-tecnologias">
+          <div class="tarjeta">2411080011@undc.edu.pe</div>
+          <div class="tarjeta">956 101 358</div>
+          <div class="tarjeta">Linkeding: @Jesus</div>
+          <div class="tarjeta">Git Hub: @Jesus</div>
+        </div>
       </section>
-
-      <!-- Contacto -->
-      <section id="contacto" 
-        class="max-w-4xl w-full bg-white/90 backdrop-blur-md border border-cyan-300/30 rounded-2xl shadow-lg p-8 transform transition duration-500 hover:-translate-y-1 hover:shadow-cyan-500/30">
-        <h2 class="text-3xl font-bold mb-6 text-cyan-500">📩 Contacto</h2>
-        <ul class="space-y-3 text-gray-800 text-lg">
-          <li><strong class="text-black">Email:</strong> jesus@example.com</li>
-          <li><strong class="text-black">Teléfono:</strong> +51 987654321</li>
-          <li><strong class="text-black">LinkedIn:</strong> <a href="https://www.linkedin.com/in/jesusarotinco" class="text-cyan-700 hover:underline">linkedin.com/in/jesusarotinco</a></li>
-          <li><strong class="text-black">GitHub:</strong> <a href="https://github.com/jesusarotinco" class="text-cyan-700 hover:underline">github.com/jesusarotinco</a></li>
-        </ul>
-      </section>
-
     </main>
-
-    <!-- Footer -->
-    <footer class="relative w-full bg-black text-gray-400 text-center py-6 mt-12 border-t border-cyan-500/30">
-      <p class="text-sm">© 2025 Jesús Arotinco | Portafolio Profesional</p>
-    </footer>
   </div>
 
-  <!-- Script efecto Matrix -->
-  <script>
-    const canvas = document.getElementById('matrix-bg');
-    const ctx = canvas.getContext('2d');
+  <footer>© 2025 Jesús - Todos los derechos reservados</footer>
 
-    function resizeCanvas() {
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    }
-    resizeCanvas();
-
-    const letters = "01".split("");
-    const fontSize = 16;
-    let columns = canvas.width / fontSize;
-    let drops = Array(Math.floor(columns)).fill(1);
-
-    function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#0ff";
-      ctx.font = fontSize + "px monospace";
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-
-    setInterval(draw, 50);
-
-    window.addEventListener("resize", () => {
-      resizeCanvas();
-      columns = canvas.width / fontSize;
-      drops = Array(Math.floor(columns)).fill(1);
-    });
+  <!-- === JS MENU === -->
+  <script src="js.js">
   </script>
-  <script src="js.js"></script>
 </body>
 </html>
