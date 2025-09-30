@@ -23,14 +23,14 @@
     <nav class="menu-navegacion">
       <ul>
         <li><a href="#sobre-mi">👤 <span class="texto-menu">Sobre mí</span></a></li>
-        <li><a href="#proyectos">💻 <span class="texto-menu">Proyectos</span></a></li>
-        <li><a href="#tecnologias">⚙️ <span class="texto-menu">Tecnologías</span></a></li>
+        <li><a href="#proyectos">👨‍💻 <span class="texto-menu">Proyectos</span></a></li>
+        <li><a href="#tecnologias">🌐 <span class="texto-menu">Tecnologías</span></a></li>
         <li><a href="#contacto">📞 <span class="texto-menu">Contacto</span></a></li>
       </ul>
     </nav>
-    <div class="menu-usuario">
-      <img src="https://i.pravatar.cc/100" alt="Usuario">
-      <span class="texto-menu">Jesús</span>
+    <div class="menu-usuario-contenedor">
+      <img class="menu-usuario" src="../imagenes/img1.jpg" alt="Usuario">
+      <span class="texto-menu">Jesus Arotinco</span>
     </div>
   </aside>
 
@@ -38,9 +38,9 @@
   <div class="contenido">
     <main>
       <section id="sobre-mi" class="tarjeta animada flex">
-        <div class="avatar-contenedor">
-  <img src="../imagenes/img1.jpg" alt="Foto">
-</div>
+        <div>
+          <img class="avatar-contenedor" src="../imagenes/img1.jpg" alt="Foto">
+        </div>
         <div>
           <h2>Sobre mí</h2>
           <p>
@@ -72,20 +72,23 @@
 
       <section id="contacto" class="tarjeta animada">
         <h2>Contacto</h2>
-        <div class="lista-tecnologias">
+        <div class="lista-contactos">
           <div class="tarjeta">2411080011@undc.edu.pe</div>
           <div class="tarjeta">956 101 358</div>
-          <div class="tarjeta">Linkeding: @Jesus</div>
-          <div class="tarjeta">Git Hub: @Jesus</div>
+          <div class="tarjeta">Linkedin: @Jesus</div>
+          <div class="tarjeta">GitHub: @Jesus</div>
         </div>
       </section>
     </main>
   </div>
 
   <footer>© 2025 Jesús - Todos los derechos reservados</footer>
+<!-- Contenedor de notificaciones -->
+<div id="notificacion" class="notificacion"></div>
 
   <!-- === JS MENU === -->
   <script src="js.js">
   </script>
+  
 </body>
 </html>

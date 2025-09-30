@@ -27,7 +27,7 @@ body.cuerpo {
   left: 15px;
   background: none;
   border: none;
-  color: var(--principal);
+  color: var(--texto);
   font-size: 26px;
   cursor: pointer;
   z-index: 300;
@@ -45,7 +45,7 @@ body.cuerpo {
   transition: width 0.4s ease, left 0.4s ease;
   overflow: hidden;
   z-index: 200;
-  border-right: 1px solid var(--borde);
+  border-right: 1px solid var(--principal);
   box-shadow: 2px 0 12px rgba(0,0,0,0.5);
 }
 .menu-cerrado { width: 60px; }
@@ -57,7 +57,7 @@ body.cuerpo {
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  border-bottom: 1px solid var(--borde);
+  border-bottom: 1px solid var(--principal);
 }
 .titulo-menu {
   margin-left: .5rem;
@@ -111,16 +111,17 @@ body.cuerpo {
 .menu-abierto .texto-menu { opacity: 1; }
 
 /* Usuario */
-.menu-usuario {
+.menu-usuario-contenedor{
   padding: 1rem;
-  border-top: 1px solid var(--borde);
-  display: flex;
+  border-top: 1px solid var(--principal);
+  display: grid;
+  grid-template-columns: 1fr 4fr;
   align-items: center;
   gap: 10px;
   transition: background 0.3s ease;
 }
-.menu-usuario:hover { background: rgba(14,165,233,0.15); }
-.menu-usuario img {
+.menu-usuario-contenedor:hover { background: rgba(14,165,233,0.15); }
+.menu-usuario {
   width: 35px; height: 35px;
   border-radius: 50%;
 }
@@ -128,7 +129,7 @@ body.cuerpo {
 /* Contenido */
 .contenido { 
   margin-left: 60px; 
-  padding-top: 10px; 
+  padding-top: 40px; 
   transition: margin-left 0.4s ease; 
 }
 .menu-abierto ~ .contenido { margin-left: 220px; }
@@ -157,7 +158,7 @@ main {
 }
 .animada { animation: fadeInUp 1s ease; }
 .avatar-contenedor {
-  width: 300px;            /* tamaño del círculo */
+  width: 150px;            /* tamaño del círculo */
   height: 150px;           /* mismo que el ancho */
   border-radius: 50%;      /* círculo perfecto */
   overflow: hidden;         /* recorta lo que sobresalga */
@@ -186,7 +187,7 @@ main {
 }
 
 /* Tecnologías */
-.lista-tecnologias {
+.lista-tecnologias, .lista-contactos {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
   gap: .75rem;
@@ -197,10 +198,33 @@ footer {
   background: black;
   color: #aaa;
   text-align: center;
-  padding: 1rem;
-  font-size: .9rem;
+  padding: 2rem 0;
+  font-size: 1rem;
   border-top: 1px solid var(--principal);
 }
+
+/* ESTILOS DE LA NOTIFICACIÓN */
+.notificacion {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--principal);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(-20px);
+  z-index: 500;
+}
+.notificacion.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 /* Animación */
 @keyframes fadeInUp {
@@ -210,15 +234,19 @@ footer {
 
 /* Responsive móviles */
 @media (max-width: 768px) {
+  .contenido { 
+    padding-top: 0px;  
+  }
   .btn-menu-contenedor{
     width: 100%;
     background-color: #0a0a0a;;
     height: 5vh;
     display: flex;
-    padding: 15px 0;
+    padding: 18px 0;
     position: sticky;
     top: 0;
     z-index: 400;
+    border-bottom: 1px solid var(--principal);
   }
   #btn-menu {
     position: fixed;
@@ -242,6 +270,11 @@ footer {
   .avatar-contenedor {
     display: none;
   }
+  .lista-contactos {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
 
   /* Overlay solo en móviles */
   .overlay {
@@ -252,6 +285,7 @@ footer {
     z-index: 150;
   }
   .overlay.activo { display: block; }
+  /* Tecnologías */
 }
 
 /* En pantallas grandes, overlay nunca aparece */

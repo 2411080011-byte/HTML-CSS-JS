@@ -1,4 +1,4 @@
- const menu = document.getElementById("menu-lateral");
+    const menu = document.getElementById("menu-lateral");
     const btn = document.getElementById("btn-menu");
     const overlay = document.getElementById("overlay");
 
@@ -45,3 +45,24 @@
       canvas.height = window.innerHeight;
       canvas.width = window.innerWidth;
     });
+
+    // mensaje emergente
+    // Seleccionamos todos los enlaces del menú
+const menuLinks = document.querySelectorAll('.menu-navegacion a');
+const notificacion = document.getElementById('notificacion');
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    const apartado = link.querySelector('.texto-menu').textContent;
+
+    // Mostrar notificación
+    notificacion.textContent = `Ahora estás en el apartado: ${apartado}`;
+    notificacion.classList.add('mostrar');
+
+    // Ocultar después de 2.5 segundos
+    setTimeout(() => {
+      notificacion.classList.remove('mostrar');
+    }, 3000);
+  });
+});
+
