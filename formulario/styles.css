@@ -126,7 +126,9 @@ img{
 /* ESTILOS PARA RESOLUCIONES MOVILES */
 
 @media (max-width: 720px){
+
     .formulario-contenedor{
         width: 80%;
+        height: 60%;
     }
 }
