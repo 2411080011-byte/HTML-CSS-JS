@@ -79,6 +79,7 @@ img{
     resize: none;
     padding: 5px 5px 5px 28px;
     border: 1px solid grey;
+    font-family: inherit;
 }
 
 .datos-contenedor textarea:focus{
