@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EmailJS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="fondo-general">
+    <form class="formulario-contenedor" onsubmit="enviarCorreo(event)">
+        <h2 class="titulo">Formulario </h2>
+        <div class="datos-contenedor">
+            <label>Nombre completo</label><br>
+            <img class="icono" src="imagenes/usuario.png" alt="">
+            <input type="text" id="nombre" required><br><br>
+
+            <label>Correo electrónico:</label><br>
+            <img class="icono" src="imagenes/correo.png" alt="">
+            <input type="email" id="email" required><br><br>
+
+            <label>Mensaje</label><br>
+            <img class="icono icono-mensaje" src="imagenes/comentario.png" alt="">
+            <textarea id="mensaje" required rows="5" ></textarea><br><br>
+        </div>
+        <div class="boton">
+            <button type="submit">
+                <img src="imagenes/avion.png" alt="">
+                Enviar mensaje
+            </button>
+        </div>
+        <div class="footer">
+            <p>Todos los derechos reservados</p>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <script>
+            // Inicializar EmailJS con tu Public Key
+            (function(){
+            emailjs.init("88Npgv4CEJzb_F3hq");
+            })();
+
+            function enviarCorreo(e) {
+            e.preventDefault(); // evitar recarga del form
+            emailjs.send("service_4b3ff06","template_kt1dc6l", {
+            /*emailjs.send("service_xxx", "template_xxx", {*/
+            from_name: document.getElementById("nombre").value,
+            from_email: document.getElementById("email").value,
+            message: document.getElementById("mensaje").value
+            })
+
+            .then((res) => {
+            alert("Correo enviado correctamente!");
+            console.log("Respuesta:", res);
+            })
+            
+            .catch((err) => {
+            alert("Error al enviar el correo.");
+
+            console.error("Error:", err);
+            });
+            }
+        </script>
+    </script>
+</body>
+</html>

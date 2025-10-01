@@ -1,0 +1,132 @@
+/*----------- ESTILOS GENERALES -----------*/
+
+*{
+    box-sizing: border-box;
+}
+
+.fondo-general{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    margin: 0;
+    background: -webkit-linear-gradient(90deg,#31111c,#e4282a,#f3eb63,#d52827,#110a13); /* Chrome 10-25, Safari 5.1-6 */ background: linear-gradient(90deg,#ff1900,#a50003,#fff200,#a11000,#ff0004); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+img{
+    width: 18px;
+    height: 18px;
+    filter: invert(1);
+}
+
+.icono{
+    width: 16px;
+    height: 16px;
+    filter: invert(0);
+    position: absolute;
+    margin: 12px 0 0 8px;
+}
+
+.icono-mensaje{
+    width: 19px;
+}
+
+/* ESTILOS DEL CONTENEDOR DEL FORM */
+
+.formulario-contenedor{
+    width: 300px;
+    height: 85%;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 2fr minmax(280px, 3fr) 2fr 2fr;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgb(255, 255, 255);
+    background-color: white;
+}
+
+/* ESTILOS PARA LOS ELEMENTOS DENTRO DEL FORM */
+
+.titulo{
+    margin: 0;
+    text-align: center;
+    background: linear-gradient(to right,rgb(242, 0, 0), rgb(255, 98, 0),rgb(242, 0, 0));
+    color: rgb(255, 255, 255);
+    padding: 15px 0;
+    border-radius: 18px 18px 0 0;
+}
+
+.datos-contenedor, .boton{
+    padding: 20px;
+}
+
+.datos-contenedor input{
+    margin-top: 6px;
+    width: 100%;
+    border-radius: 15px;
+    padding: 5px 5px 5px 28px;
+    outline: none;
+    border: 1px solid grey;
+}
+
+.datos-contenedor input:focus{
+    border-color: blue;
+}
+
+.datos-contenedor textarea{
+    margin-top: 6px;
+    width: 100%;
+    border-radius: 15px;
+    outline: none;
+    resize: none;
+    padding: 5px 5px 5px 28px;
+    border: 1px solid grey;
+}
+
+.datos-contenedor textarea:focus{
+    border-color: red;
+}
+
+.boton{
+    display: flex;
+}
+
+.boton button{
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid grey;
+    background: linear-gradient(to right,rgb(242, 0, 0), rgb(255, 98, 0),rgb(242, 0, 0));
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s, 0.2s;
+}
+
+.boton button:hover{
+    transform: scale(1.04);
+    background: linear-gradient(to right,rgb(0, 0, 214), rgb(207, 0, 0));
+    transition: transform 0.2s linear, background 0.2s linear;
+}
+
+.footer{
+    display: flex;
+    margin: 0
+}
+
+.footer p{
+    margin: auto;
+    font-size: .9rem;
+    transform: scaleY(.9);
+    color: rgb(73, 73, 73);
+}
+
+/* ESTILOS PARA RESOLUCIONES MOVILES */
+
+@media (max-width: 720px){
+    .formulario-contenedor{
+        width: 80%;
+    }
+}
